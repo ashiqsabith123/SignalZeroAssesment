@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option go_package = "./pb";
+
+service UserService{
+
+    rpc CreateUser(CreateUserRequest)returns(CreateUserResponce){}
+    rpc GetAllUsers (GetAllUsersRequest)returns(Users){}
+    rpc GetUserByName(GetUserByNameRequest)returns(User){}
+
+}
+
+
+message GetUserByNameRequest{
+    string name=1;
+}
+
+message GetAllUsersRequest{}
+
+message CreateUserRequest{
+    string name =1;
+    uint32 age =2;
+}
+
+message Users{
+    string message =1;
+    repeated User users=2;
+}
+
+message User{
+    string name =1;
+    uint32 age =2;
+}
+
+message CreateUserResponce{  
+    string message =2;   
+}
+
